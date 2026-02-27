@@ -1,0 +1,124 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Syne:wght@700;800&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  { overflow-x: hidden; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #060a10; }
+::-webkit-scrollbar-thumb { background: #00f5c4; border-radius: 2px; }
+
+/* ── Animations ── */
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes gridMove { from{background-position:0 0} to{background-position:40px 40px} }
+
+/* ── HERO ── */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 6rem clamp(1.5rem, 6vw, 6rem) 4rem;
+}
+.hero-content     { max-width: 580px; width: 100%; }
+.hero-title       { font-size: clamp(2.6rem, 6vw, 5.5rem); }
+.hero-subtitle    { font-size: clamp(0.85rem, 2vw, 1.1rem); min-height: 2rem; }
+.hero-desc        { font-size: clamp(0.85rem, 1.5vw, 0.95rem); max-width: 520px; }
+.hero-buttons     { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+.hero-photo-wrap  { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+
+/* ── SECTIONS ── */
+.section-pad         { padding: 6rem clamp(1.5rem, 6vw, 6rem); }
+.section-pad-contact { padding: 6rem clamp(1.5rem, 6vw, 6rem) 8rem; }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+  max-width: 1000px;
+}
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+  max-width: 1100px;
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-width: 1000px;
+}
+
+/* ── TIMELINE ── */
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── NAV RESPONSIVE ── */
+.nav-desktop         { display: flex; }
+.nav-mobile-controls { display: none; }
+.nav-mobile-menu     { display: none; }
+
+/* ════════════════════════════════════
+   TABLET  ≤ 1024px
+════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-grid { gap: 2.5rem; }
+}
+
+/* ════════════════════════════════════
+   MOBILE  ≤ 768px
+════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav-desktop         { display: none !important; }
+  .nav-mobile-controls { display: flex !important; }
+  .nav-mobile-menu     { display: flex !important; }
+
+  /* Hero — stack vertically */
+  .hero-section {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 90px;
+    gap: 2rem;
+  }
+  .hero-content  { max-width: 100%; }
+  .hero-buttons  { justify-content: center; }
+  .hero-desc     { margin-left: auto; margin-right: auto; }
+
+  /* Grids → single column */
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Sections */
+  .section-pad-contact { padding-bottom: 5rem; }
+}
+
+/* ════════════════════════════════════
+   SMALL MOBILE  ≤ 480px
+════════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-buttons a,
+  .hero-buttons button { width: 100%; justify-content: center; }
+  .section-pad-contact { padding-bottom: 4rem; }
+}
